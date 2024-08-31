@@ -20,18 +20,34 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views", "pages"));
 
+
+
+
+// Sample product data
+const products = [
+    { id: 1, name: 'Product 1', price: 29.99, image: 'product1.jpg', description: 'Description of Product 1' },
+    { id: 2, name: 'Product 2', price: 19.99, image: 'product2.jpg', description: 'Description of Product 2' },
+    { id: 3, name: 'Product 3', price: 39.99, image: 'product3.jpg', description: 'Description of Product 3' },
+  ];
+
 //api routes:
 
-app.get("/", (req, res) => {
-  res.send("Hello this is browser");
+// app.get("/", (req, res) => {
+//   res.send("Hello this is browser");
+// });
+
+
+app.get("/cart", (req, res) => {
+  res.render("cart");
 });
 
-app.get("/index", (req, res) => {
-  res.render("index");
+
+app.get("/home", (req,res) => {
+    res.render("home",{products});
 });
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
+
+
+
 
 app.listen(3000, () => {
   console.log("server started at port no.3000");

@@ -1,1 +1,15 @@
-<h1>home page</h1>
+
+
+<section id="product-list">
+    {{#each products}}
+    <div class="product">
+        {{!-- <img src="/images/{{this.image}}" alt="{{this.name}}"> --}}
+        <h2>{{this.name}}</h2>
+        <p>{{this.description}}</p>
+        <p>Price: ${{this.price}}</p>
+        <button>Add to Cart</button>
+    </div>
+    {{/each}}
+</section>
+
+
